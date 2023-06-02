@@ -8,25 +8,29 @@ import (
 	"github.com/fbriansyah/my-grpc-go-server/internal/port"
 	"github.com/fbriansyah/my-grpc-proto/protogen/go/bank"
 	"github.com/fbriansyah/my-grpc-proto/protogen/go/hello"
+	resl "github.com/fbriansyah/my-grpc-proto/protogen/go/resiliency"
 	"google.golang.org/grpc"
 )
 
 type GrpcAdapter struct {
-	helloService port.HelloServicePort
-	bankService  port.BankServicePort
-	grpcPort     int
-	server       *grpc.Server
+	helloService      port.HelloServicePort
+	bankService       port.BankServicePort
+	resiliencyService port.ResiliencyServicePort
+	grpcPort          int
+	server            *grpc.Server
 	hello.HelloServiceServer
 	bank.BankServiceServer
+	resl.ResiliencyServiceServer
 }
 
 func NewGrpcAdapter(helloService port.HelloServicePort, bankService port.BankServicePort,
-	grpcPort int) *GrpcAdapter {
+	resiliencyService port.ResiliencyServicePort, grpcPort int) *GrpcAdapter {
 
 	return &GrpcAdapter{
-		helloService: helloService,
-		bankService:  bankService,
-		grpcPort:     grpcPort,
+		helloService:      helloService,
+		bankService:       bankService,
+		resiliencyService: resiliencyService,
+		grpcPort:          grpcPort,
 	}
 }
 
