@@ -3,12 +3,12 @@ module github.com/fbriansyah/my-grpc-go-server
 go 1.20
 
 require (
-	github.com/fbriansyah/my-grpc-proto v0.0.11
+	github.com/fbriansyah/my-grpc-proto v0.0.13
 	github.com/golang-migrate/migrate/v4 v4.16.0
 	github.com/google/uuid v1.3.0
 	github.com/jackc/pgx/v4 v4.18.1
-	google.golang.org/genproto v0.0.0-20230526203410-71b5a4ffd15e
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20230526203410-71b5a4ffd15e
+	google.golang.org/genproto v0.0.0-20230530153820-e85fd2cbaebc
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20230530153820-e85fd2cbaebc
 	google.golang.org/grpc v1.55.0
 	gorm.io/driver/postgres v1.5.2
 	gorm.io/gorm v1.25.1
