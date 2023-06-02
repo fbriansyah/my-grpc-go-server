@@ -13,8 +13,8 @@ func (r *ResiliencyService) GenerateResiliency(minDelaySecond int32, maxDelaySec
 	statusCodes []uint32) (string, uint32) {
 
 	delay := rand.Intn(int(maxDelaySecond-minDelaySecond+1)) + int(minDelaySecond)
-	delayedSecond := time.Duration(delay) * time.Second
-	time.Sleep(delayedSecond)
+	delaySecond := time.Duration(delay) * time.Second
+	time.Sleep(delaySecond)
 
 	idx := rand.Intn(len(statusCodes))
 	str := fmt.Sprintf("The time now is %v, execution delayed for %v seconds",

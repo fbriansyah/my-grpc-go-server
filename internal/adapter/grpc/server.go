@@ -50,6 +50,7 @@ func (a *GrpcAdapter) Run() {
 
 	hello.RegisterHelloServiceServer(grpcServer, a)
 	bank.RegisterBankServiceServer(grpcServer, a)
+	resl.RegisterResiliencyServiceServer(grpcServer, a)
 
 	if err := grpcServer.Serve(listen); err != nil {
 		log.Fatalf("Failed to server grpc on port %d: %v\n", a.grpcPort, err)
