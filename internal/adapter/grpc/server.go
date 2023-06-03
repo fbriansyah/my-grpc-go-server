@@ -21,6 +21,7 @@ type GrpcAdapter struct {
 	hello.HelloServiceServer
 	bank.BankServiceServer
 	resl.ResiliencyServiceServer
+	resl.ResiliencyWithMetadataServiceServer
 }
 
 func NewGrpcAdapter(helloService port.HelloServicePort, bankService port.BankServicePort,
