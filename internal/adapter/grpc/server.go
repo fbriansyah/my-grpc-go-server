@@ -5,6 +5,7 @@ import (
 	"log"
 	"net"
 
+	"github.com/fbriansyah/my-grpc-go-server/internal/interceptor"
 	"github.com/fbriansyah/my-grpc-go-server/internal/port"
 	"github.com/fbriansyah/my-grpc-proto/protogen/go/bank"
 	"github.com/fbriansyah/my-grpc-proto/protogen/go/hello"
@@ -46,7 +47,16 @@ func (a *GrpcAdapter) Run() {
 
 	log.Printf("Server listen on port %d \n", a.grpcPort)
 
-	grpcServer := grpc.NewServer()
+	grpcServer := grpc.NewServer(
+		grpc.ChainUnaryInterceptor(
+			interceptor.LogUnaryServerInterceptor(),
+			interceptor.BasicUnaryServerInterceptor(),
+		),
+		grpc.ChainStreamInterceptor(
+			interceptor.LogStreamServerInterceptor(),
+			interceptor.BasicStreamServerInterceptor(),
+		),
+	)
 	a.server = grpcServer
 
 	hello.RegisterHelloServiceServer(grpcServer, a)
