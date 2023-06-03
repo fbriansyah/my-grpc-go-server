@@ -3,7 +3,7 @@ module github.com/fbriansyah/my-grpc-go-server
 go 1.20
 
 require (
-	github.com/fbriansyah/my-grpc-proto v0.0.14
+	github.com/fbriansyah/my-grpc-proto v0.0.15
 	github.com/golang-migrate/migrate/v4 v4.16.0
 	github.com/google/uuid v1.3.0
 	github.com/jackc/pgx/v4 v4.18.1
