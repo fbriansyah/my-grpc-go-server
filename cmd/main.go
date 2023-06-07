@@ -43,21 +43,6 @@ func main() {
 	grpcAdapter.Run()
 }
 
-// func runDummyOrm(da *mydb.DatabaseAdapter) {
-// 	now := time.Now()
-
-// 	uuid, _ := da.Save(&mydb.DummyOrm{
-// 		UserId:    uuid.New(),
-// 		UserName:  "John " + time.Now().Format("15:04:05"),
-// 		CreatedAt: now,
-// 		UpdatedAt: now,
-// 	})
-
-// 	res, _ := da.GetByUuid(&uuid)
-
-// 	log.Println("Res:", res)
-// }
-
 func generateExchangeRates(bs *app.BankService, fromCurrency, toCurrency string, duration time.Duration) {
 	ticker := time.NewTicker(duration)
 
